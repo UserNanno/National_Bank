@@ -13,7 +13,7 @@ import java.util.List;
 @NoArgsConstructor
 @AllArgsConstructor
 @Builder
-@Table(name = "bank_accounts") // Convención estándar en nombres de tablas
+@Table(name = "bank_accounts")
 public class BankAccount {
 
     @Id
@@ -23,7 +23,7 @@ public class BankAccount {
     @Column(nullable = false, unique = true, length = 20)
     private String accountNumber;
 
-    @Column(nullable = false, precision = 15, scale = 2) // Definir precisión decimal
+    @Column(nullable = false, precision = 15, scale = 2)
     private BigDecimal balance;
 
     @Column(nullable = false, length = 15)

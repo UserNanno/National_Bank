@@ -10,7 +10,7 @@ import java.util.List;
 @NoArgsConstructor
 @AllArgsConstructor
 @Builder
-@Table(name = "users") // Convención estándar para nombres de tablas
+@Table(name = "users")
 public class User {
 
     @Id

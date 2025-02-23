@@ -12,7 +12,7 @@ import java.time.LocalDateTime;
 @NoArgsConstructor
 @AllArgsConstructor
 @Builder
-@Table(name = "transactions") // Convención estándar para nombres de tablas
+@Table(name = "transactions")
 public class Transaction {
 
     @Id
@@ -27,7 +27,7 @@ public class Transaction {
     @JoinColumn(name = "to_account_id", nullable = false)
     private BankAccount toAccount;
 
-    @Column(nullable = false, precision = 15, scale = 2) // Definir precisión decimal
+    @Column(nullable = false, precision = 15, scale = 2)
     private BigDecimal amount;
 
     @Column(nullable = false)
