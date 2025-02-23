@@ -45,6 +45,13 @@ public class BankAccount {
     @Embedded
     private Audit audit = new Audit();
 
+    @PrePersist
+    protected void prePersist() {
+        if (this.audit == null) {
+            this.audit = new Audit();
+        }
+    }
+
     @Override
     public String toString() {
         return "BankAccount{" +
