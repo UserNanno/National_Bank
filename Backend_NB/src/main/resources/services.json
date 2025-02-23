@@ -1,0 +1,242 @@
+[
+  {
+    "id": 1,
+    "serviceType": "Cable",
+    "companyName": "DirecTV"
+  },
+  {
+    "id": 2,
+    "serviceType": "Cable",
+    "companyName": "Claro TV"
+  },
+  {
+    "id": 3,
+    "serviceType": "Cable",
+    "companyName": "Movistar TV"
+  },
+  {
+    "id": 4,
+    "serviceType": "Educación",
+    "companyName": "Universidad Peruana de Ciencias Aplicadas"
+  },
+  {
+    "id": 5,
+    "serviceType": "Educación",
+    "companyName": "Pontificia Universidad Católica del Perú"
+  },
+  {
+    "id": 6,
+    "serviceType": "Educación",
+    "companyName": "Universidad de Lima"
+  },
+  {
+    "id": 7,
+    "serviceType": "Educación",
+    "companyName": "Universidad Nacional Mayor de San Marcos"
+  },
+  {
+    "id": 8,
+    "serviceType": "Educación",
+    "companyName": "Universidad de Piura"
+  },
+  {
+    "id": 9,
+    "serviceType": "Educación",
+    "companyName": "Universidad San Ignacio de Loyola"
+  },
+  {
+    "id": 10,
+    "serviceType": "Educación",
+    "companyName": "Colegio San Silvestre"
+  },
+  {
+    "id": 11,
+    "serviceType": "Educación",
+    "companyName": "Colegio Markham"
+  },
+  {
+    "id": 12,
+    "serviceType": "Educación",
+    "companyName": "Colegio Franklin Delano Roosevelt"
+  },
+  {
+    "id": 13,
+    "serviceType": "Financiero",
+    "companyName": "Banco de la Nación"
+  },
+  {
+    "id": 14,
+    "serviceType": "Financiero",
+    "companyName": "BBVA"
+  },
+  {
+    "id": 15,
+    "serviceType": "Financiero",
+    "companyName": "BCP"
+  },
+  {
+    "id": 16,
+    "serviceType": "Financiero",
+    "companyName": "Interbank"
+  },
+  {
+    "id": 17,
+    "serviceType": "Internet",
+    "companyName": "Claro"
+  },
+  {
+    "id": 18,
+    "serviceType": "Internet",
+    "companyName": "Movistar"
+  },
+  {
+    "id": 19,
+    "serviceType": "Internet",
+    "companyName": "Win"
+  },
+  {
+    "id": 20,
+    "serviceType": "Internet",
+    "companyName": "Viettel"
+  },
+  {
+    "id": 21,
+    "serviceType": "Salud",
+    "companyName": "Clínica Internacional"
+  },
+  {
+    "id": 22,
+    "serviceType": "Salud",
+    "companyName": "Sanitas"
+  },
+  {
+    "id": 23,
+    "serviceType": "Salud",
+    "companyName": "EsSalud"
+  },
+  {
+    "id": 24,
+    "serviceType": "Salud",
+    "companyName": "Clínica Anglo Americana"
+  },
+  {
+    "id": 25,
+    "serviceType": "Seguros",
+    "companyName": "Rimac Seguros"
+  },
+  {
+    "id": 26,
+    "serviceType": "Seguros",
+    "companyName": "Pacífico Seguros"
+  },
+  {
+    "id": 27,
+    "serviceType": "Seguros",
+    "companyName": "Mapfre"
+  },
+  {
+    "id": 28,
+    "serviceType": "Seguros",
+    "companyName": "La Positiva Seguros"
+  },
+  {
+    "id": 29,
+    "serviceType": "Servicios de Luz",
+    "companyName": "ENEL"
+  },
+  {
+    "id": 30,
+    "serviceType": "Servicios de Luz",
+    "companyName": "Luz del Sur"
+  },
+  {
+    "id": 31,
+    "serviceType": "Servicios de Luz",
+    "companyName": "Electro Perú"
+  },
+  {
+    "id": 32,
+    "serviceType": "Servicios de Agua",
+    "companyName": "Sedapal"
+  },
+  {
+    "id": 33,
+    "serviceType": "Servicios de Agua",
+    "companyName": "EPS Grau"
+  },
+  {
+    "id": 34,
+    "serviceType": "Servicios de Agua",
+    "companyName": "Sedaloreto"
+  },
+  {
+    "id": 35,
+    "serviceType": "Servicios Municipales",
+    "companyName": "Municipalidad de Lima"
+  },
+  {
+    "id": 36,
+    "serviceType": "Servicios Municipales",
+    "companyName": "Municipalidad de Miraflores"
+  },
+  {
+    "id": 37,
+    "serviceType": "Servicios Municipales",
+    "companyName": "Municipalidad de San Isidro"
+  },
+  {
+    "id": 38,
+    "serviceType": "Servicios Municipales",
+    "companyName": "Municipalidad de Surco"
+  },
+  {
+    "id": 39,
+    "serviceType": "Telefonía",
+    "companyName": "Claro"
+  },
+  {
+    "id": 40,
+    "serviceType": "Telefonía",
+    "companyName": "Movistar"
+  },
+  {
+    "id": 41,
+    "serviceType": "Telefonía",
+    "companyName": "Entel"
+  },
+  {
+    "id": 42,
+    "serviceType": "Telefonía",
+    "companyName": "Bitel"
+  },
+  {
+    "id": 43,
+    "serviceType": "Transporte",
+    "companyName": "Superintendencia de Transporte Terrestre de Personas, Carga y Mercancías (SUTRAN)"
+  },
+  {
+    "id": 44,
+    "serviceType": "Transporte",
+    "companyName": "Empresa Municipal de Peajes de Lima (EMAPE)"
+  },
+  {
+    "id": 45,
+    "serviceType": "Transporte",
+    "companyName": "Línea 1 del Metro de Lima"
+  },
+  {
+    "id": 46,
+    "serviceType": "Transporte",
+    "companyName": "Consorcio Transmantaro"
+  },
+  {
+    "id": 47,
+    "serviceType": "Transporte",
+    "companyName": "Transportes Cruz del Sur"
+  },
+  {
+    "id": 48,
+    "serviceType": "Transporte",
+    "companyName": "Transportes Oltursa"
+  }
+]
