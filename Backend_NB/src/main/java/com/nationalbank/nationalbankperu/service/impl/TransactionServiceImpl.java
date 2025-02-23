@@ -30,7 +30,13 @@ public class TransactionServiceImpl implements ITransactionService {
         this.bankAccountRepository = bankAccountRepository;
         this.userRepository = userRepository;
     }
-    
+
+    @Override
+    @Transactional(readOnly = true)
+    public List<Transaction> findByTransactionDateBetween(LocalDateTime startDate, LocalDateTime endDate) {
+        return transactionRepository.findByTransactionDateBetween(startDate, endDate);
+    }
+
 
     @Override
     @Transactional(readOnly = true)
