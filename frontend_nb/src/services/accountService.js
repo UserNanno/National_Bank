@@ -15,3 +15,21 @@ export async function updateAccountStatus(accountNumber, newStatus) {
     console.log('Cuenta actualizada exitosamente');
     return fetchUserData(); // Actualizar usuario después del cambio
 }
+
+export async function createBankAccount(userId) {
+    const response = await fetch(`${API_BASE_URL}/create/${userId}`, {
+        method: 'POST',
+        body: JSON.stringify({}),
+        headers: {
+            'Content-Type': 'application/json'
+        }
+    });
+
+    if (!response.ok) {
+        const errorText = await response.text();
+        throw new Error(`Error en la creación de la cuenta: ${errorText}`);
+    }
+
+    await updateUserLocalData();
+    return 'Cuenta creada con éxito';
+}
