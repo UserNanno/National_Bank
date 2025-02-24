@@ -1,0 +1,12 @@
+@import url('./global.css');
+
+.nosotros .imagen_con_texto {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.nosotros .cuadro_con_texto {
+    max-width: 600px;
+    text-align: center;
+}

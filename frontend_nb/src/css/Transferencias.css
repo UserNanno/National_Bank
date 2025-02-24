@@ -1,0 +1,14 @@
+@import url('./global.css');
+
+.transferencias {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: var(--spacing);
+}
+
+.transferencias input,
+.transferencias select {
+    width: 100%;
+    max-width: 400px;
+}

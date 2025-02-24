@@ -1,0 +1,10 @@
+@import url('./global.css');
+
+.registro__card {
+    box-shadow: var(--box-shadow);
+    padding: var(--spacing);
+}
+
+.registro__errorMessage {
+    color: red;
+}

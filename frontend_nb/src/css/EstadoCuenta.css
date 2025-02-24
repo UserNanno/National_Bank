@@ -1,0 +1,9 @@
+@import url('./global.css');
+
+.card-cuenta {
+    background: var(--background-light);
+    border-radius: var(--border-radius);
+    box-shadow: var(--box-shadow);
+    padding: var(--spacing);
+    text-align: center;
+}

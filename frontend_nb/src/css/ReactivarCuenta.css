@@ -1,0 +1,16 @@
+@import url('./global.css');
+
+.reactivar-form {
+    padding: var(--spacing);
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+.reactivar-form input,
+.reactivar-form select {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: var(--border-radius);
+}

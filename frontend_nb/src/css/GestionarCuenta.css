@@ -1,0 +1,16 @@
+@import url('./global.css');
+
+.gestionar-cuenta__contenido {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+}
+
+.gestionar-cuenta__list {
+    list-style: none;
+    padding: 0;
+}
+
+.gestionar-cuenta__list li {
+    margin-bottom: 10px;
+}

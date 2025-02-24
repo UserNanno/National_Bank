@@ -1,0 +1,10 @@
+@import url('./global.css');
+
+.cards__menu {
+    padding: var(--spacing);
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 20px;
+    background: white;
+}

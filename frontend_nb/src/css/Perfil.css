@@ -1,0 +1,12 @@
+@import url('./global.css');
+
+.perfil {
+    display: flex;
+    justify-content: space-between;
+    padding: var(--spacing);
+}
+
+.perfil img {
+    width: 100px;
+    border-radius: 50%;
+}

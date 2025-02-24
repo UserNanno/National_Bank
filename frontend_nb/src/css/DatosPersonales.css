@@ -1,0 +1,7 @@
+@import url('./global.css');
+
+.formDatos {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}

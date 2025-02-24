@@ -1,0 +1,13 @@
+@import url('./global.css');
+
+.suspender-form {
+    padding: var(--spacing);
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+.suspender-form textarea {
+    width: 100%;
+    max-width: 480px;
+}

@@ -1,0 +1,10 @@
+@import url('./global.css');
+
+.contacto {
+    padding: var(--spacing);
+    text-align: center;
+}
+
+.contacto li {
+    margin-bottom: 10px;
+}
