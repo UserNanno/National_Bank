@@ -67,7 +67,7 @@ public class UserController {
     }
 
     @PostMapping("/login")
-    public ResponseEntity<Object> login(@RequestBody User user) {
+    public ResponseEntity<?> login(@RequestBody User user) {
         Optional<User> userToLogin = userService.findByNumIdentification(user.getNumIdentification());
 
         if (userToLogin.isPresent() && userToLogin.get().getPassword().equals(user.getPassword())) {
