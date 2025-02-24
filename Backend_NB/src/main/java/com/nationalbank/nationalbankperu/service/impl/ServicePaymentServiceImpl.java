@@ -1,5 +1,8 @@
 package com.nationalbank.nationalbankperu.service.impl;
 
+import com.nationalbank.nationalbankperu.exception.BankAccountNotFoundException;
+import com.nationalbank.nationalbankperu.exception.InsufficientFundsException;
+import com.nationalbank.nationalbankperu.exception.UserNotFoundException;
 import com.nationalbank.nationalbankperu.model.BankAccount;
 import com.nationalbank.nationalbankperu.model.ServicePayment;
 import com.nationalbank.nationalbankperu.model.User;
@@ -34,14 +37,15 @@ public class ServicePaymentServiceImpl implements IServicePaymentService {
     @Transactional
     public ServicePayment payService(Long userId, ServicePayment servicePayment) {
         User user = userRepository.findById(userId)
-                .orElseThrow(() -> new RuntimeException("Usuario no encontrado"));
+                .orElseThrow(() ->new UserNotFoundException("Usuario con ID " + userId + " no encontrado"));
 
         BankAccount bankAccount = bankAccountRepository
                 .findByAccountNumber(servicePayment.getBankAccount().getAccountNumber())
-                .orElseThrow(() -> new RuntimeException("Cuenta bancaria no encontrada"));
+                .orElseThrow(() -> new BankAccountNotFoundException("Cuenta bancaria no encontrada para el número "
+                        + servicePayment.getBankAccount().getAccountNumber()));
 
         if (bankAccount.getBalance().compareTo(servicePayment.getAmount()) < 0) {
-            throw new RuntimeException("Fondos insuficientes");
+            throw new InsufficientFundsException("Fondos insuficientes en la cuenta bancaria");
         }
 
         // Actualizar saldo de la cuenta
