@@ -1,5 +1,5 @@
 import React from "react";
-import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
+import { Routes, Route } from "react-router-dom";  // ✅ Ya no importamos BrowserRouter
 
 // Importamos componentes generales
 import Navbar from "./components/Navbar";
@@ -20,9 +20,11 @@ import Transferencias from "./pages/Transferencias";
 import "./styles/global.css";
 import "./styles/responsive.css";
 
+
+
 function App() {
   return (
-    <Router>
+    <>
       <Navbar />
       <Routes>
         <Route path="/" element={<Inicio />} />
@@ -36,7 +38,7 @@ function App() {
         <Route path="/perfil" element={<Perfil />} />
       </Routes>
       <Footer />
-    </Router>
+    </>
   );
 }
 

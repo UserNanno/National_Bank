@@ -1,11 +1,11 @@
-import React, { useState } from 'react';
+import React from 'react';
 import '../styles/Banner.css';
 import { getLocalData } from '../utils/localStorageUtils';
 
 function Banner() {
     // Inicializa con el nombre del usuario directamente
     const user = getLocalData('user');
-    const [userName] = useState(user ? user.firstName : 'Usuario');
+    const [userName] = user?.firstName || 'Usuario';
 
     return (
         <div className="banner">
