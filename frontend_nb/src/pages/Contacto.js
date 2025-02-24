@@ -1,7 +1,5 @@
 import React, { useState } from 'react';
 import '../styles/Contacto.css';
-import Navbar from '../components/Navbar';
-import Footer from '../components/Footer';
 
 // Importación directa de imágenes
 import fondoContactanos from '../images/fondo-contactanos.png';
@@ -23,7 +21,6 @@ function Contacto() {
 
     return (
         <div id="contactanos">
-            <Navbar />
 
             <section className="inicio">
                 <div className="imagen_con_texto">
@@ -72,7 +69,6 @@ function Contacto() {
                 </div>
             </main>
 
-            <Footer />
         </div>
     );
 }

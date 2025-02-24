@@ -1,6 +1,4 @@
 import React, { useState } from 'react';
-import Navbar from '../components/Navbar';
-import Footer from '../components/Footer';
 import AperturarCuenta from '../components/AperturarCuenta';
 import SuspenderCuenta from '../components/SuspenderCuenta';
 import ReactivarCuenta from '../components/ReactivarCuenta';
@@ -27,7 +25,6 @@ function GestionarCuenta() {
 
     return (
         <div>
-            <Navbar />
             <main className='gestionar-cuenta'>
                 <h1>¡Realiza trámites de manera confiable y segura!</h1>
                 <p>Tenemos las siguientes opciones para ti</p>
@@ -46,7 +43,6 @@ function GestionarCuenta() {
                     </section>
                 </div>
             </main>
-            <Footer />
         </div>
     );
 }

@@ -1,8 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 import '../styles/Transferencias.css';
-import Navbar from '../components/Navbar';
-import Footer from '../components/Footer';
 import { getLocalData } from '../utils/localStorageUtils';
 import { makeTransfer } from '../services/transactionService';
 
@@ -64,7 +62,6 @@ function Transferencias() {
 
     return (
         <div>
-            <Navbar />
             <div id='transferencias'>
                 <h1>¡Realiza transferencias de manera confiable y segura!</h1>
 
@@ -115,7 +112,6 @@ function Transferencias() {
 
                 <button className="ejecutarTransferencia" onClick={handleSubmit}>Transferir</button>
             </div>
-            <Footer />
         </div>
     );
 }

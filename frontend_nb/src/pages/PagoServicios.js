@@ -1,8 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 import '../styles/PagoServicios.css';
-import Navbar from '../components/Navbar';
-import Footer from '../components/Footer';
 import { getLocalData } from '../utils/localStorageUtils';
 import { fetchAvailableServices, makeServicePayment } from '../services/paymentService';
 
@@ -63,7 +61,6 @@ function PagoServicios() {
 
     return (
         <div>
-            <Navbar />
             <div id='pago-servicios'>
                 <h1>PAGO DE SERVICIOS</h1>
 
@@ -101,7 +98,6 @@ function PagoServicios() {
 
                 <button onClick={handleSubmit}>Pagar servicio</button>
             </div>
-            <Footer />
         </div>
     );
 }

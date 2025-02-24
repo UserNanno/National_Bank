@@ -1,7 +1,5 @@
 import React, { useState, useEffect } from 'react';
 import '../styles/Perfil.css';
-import Navbar from '../components/Navbar';
-import Footer from '../components/Footer';
 import DatosPersonales from '../components/DatosPersonales';
 import EstadoCuenta from '../components/EstadoCuenta';
 import { getLocalData } from '../utils/localStorageUtils';
@@ -23,7 +21,6 @@ function Perfil() {
 
     return (
         <div>
-            <Navbar />
 
             <div id='perfil'>
                 <section className='banner-lateral'>
@@ -47,7 +44,6 @@ function Perfil() {
                 </div>
             </div>
 
-            <Footer />
         </div>
     );
 }

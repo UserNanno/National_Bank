@@ -1,7 +1,5 @@
 import React from 'react';
 import '../styles/Nosotros.css';
-import Navbar from '../components/Navbar';
-import Footer from '../components/Footer';
 
 // Importación directa de imágenes
 import fondoBancoNosotros from '../images/fondoBancoNosotros.png';
@@ -31,7 +29,6 @@ const BloqueInformativo = ({ imgSrc, titulo, contenido }) => (
 export default function Nosotros() {
     return (
         <div id="nosotros">
-            <Navbar />
 
             <section className="inicio">
                 <div className="franja"></div>
@@ -103,8 +100,6 @@ export default function Nosotros() {
                     </div>
                 ))}
             </section>
-
-            <Footer />
         </div>
     );
 }
