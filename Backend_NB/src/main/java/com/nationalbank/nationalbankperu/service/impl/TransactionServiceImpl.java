@@ -1,8 +1,11 @@
 package com.nationalbank.nationalbankperu.service.impl;
 
+import com.nationalbank.nationalbankperu.exception.BankAccountNotFoundException;
+import com.nationalbank.nationalbankperu.exception.InactiveBankAccountException;
+import com.nationalbank.nationalbankperu.exception.InsufficientFundsException;
+import com.nationalbank.nationalbankperu.exception.InvalidTransactionAmountException;
 import com.nationalbank.nationalbankperu.model.BankAccount;
 import com.nationalbank.nationalbankperu.model.Transaction;
-import com.nationalbank.nationalbankperu.model.User;
 import com.nationalbank.nationalbankperu.repository.IBankAccountRepository;
 import com.nationalbank.nationalbankperu.repository.ITransactionRepository;
 import com.nationalbank.nationalbankperu.repository.IUserRepository;
@@ -20,15 +23,13 @@ public class TransactionServiceImpl implements ITransactionService {
 
     private final ITransactionRepository transactionRepository;
     private final IBankAccountRepository bankAccountRepository;
-    private final IUserRepository userRepository;
+
 
     public TransactionServiceImpl(
             ITransactionRepository transactionRepository,
-            IBankAccountRepository bankAccountRepository,
-            IUserRepository userRepository) {
+            IBankAccountRepository bankAccountRepository) {
         this.transactionRepository = transactionRepository;
         this.bankAccountRepository = bankAccountRepository;
-        this.userRepository = userRepository;
     }
 
     @Override
@@ -70,10 +71,10 @@ public class TransactionServiceImpl implements ITransactionService {
         String toAccountNumber = transaction.getToAccount().getAccountNumber();
 
         BankAccount fromAccount = bankAccountRepository.findByAccountNumber(fromAccountNumber)
-                .orElseThrow(() -> new IllegalArgumentException("Cuenta de origen no encontrada"));
+                .orElseThrow(() -> new BankAccountNotFoundException("Cuenta de origen no encontrada: " + fromAccountNumber));
 
         BankAccount toAccount = bankAccountRepository.findByAccountNumber(toAccountNumber)
-                .orElseThrow(() -> new IllegalArgumentException("Cuenta de destino no encontrada"));
+                .orElseThrow(() -> new BankAccountNotFoundException("Cuenta de destino no encontrada: " + toAccountNumber));
 
         validateAccountAndTransaction(transaction, fromAccount, toAccount);
 
@@ -92,16 +93,20 @@ public class TransactionServiceImpl implements ITransactionService {
     }
 
     private void validateAccountAndTransaction(Transaction transaction, BankAccount fromAccount, BankAccount toAccount) {
-        if (!"ACTIVE".equals(fromAccount.getStatus()) || !"ACTIVE".equals(toAccount.getStatus())) {
-            throw new IllegalArgumentException("Una o ambas cuentas no están activas.");
+        if (!"ACTIVE".equals(fromAccount.getStatus()))  {
+            throw new InactiveBankAccountException("La cuenta de origen no está activa: " + fromAccount.getAccountNumber());
+        }
+
+        if (!"ACTIVE".equals(toAccount.getStatus())) {
+            throw new InactiveBankAccountException("La cuenta de destino no está activa: " + toAccount.getAccountNumber());
         }
 
         if (fromAccount.getBalance().compareTo(transaction.getAmount()) < 0) {
-            throw new IllegalArgumentException("Fondos insuficientes.");
+            throw new InsufficientFundsException("Fondos insuficientes en la cuenta de origen: " + fromAccount.getAccountNumber());
         }
 
         if (transaction.getAmount().compareTo(BigDecimal.ZERO) <= 0) {
-            throw new IllegalArgumentException("El monto a transferir debe ser mayor a 0.");
+            throw new InvalidTransactionAmountException("El monto a transferir debe ser mayor a 0.");
         }
     }
 }
