@@ -5,9 +5,11 @@ import com.nationalbank.nationalbankperu.repository.IBankAccountRepository;
 import com.nationalbank.nationalbankperu.service.impl.BankAccountServiceImpl;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
+import org.junit.jupiter.api.extension.ExtendWith;
 import org.mockito.InjectMocks;
 import org.mockito.Mock;
-import org.mockito.MockitoAnnotations;
+import org.mockito.junit.jupiter.MockitoExtension;
+
 
 import java.math.BigDecimal;
 import java.util.Optional;
@@ -15,6 +17,7 @@ import java.util.Optional;
 import static org.junit.jupiter.api.Assertions.*;
 import static org.mockito.Mockito.*;
 
+@ExtendWith(MockitoExtension.class)
 class BankAccountServiceTest {
 
     @Mock
@@ -27,7 +30,6 @@ class BankAccountServiceTest {
 
     @BeforeEach
     void setUp() {
-        MockitoAnnotations.openMocks(this);
         bankAccount = new BankAccount();
         bankAccount.setId(1L);
         bankAccount.setAccountNumber("123456789");
