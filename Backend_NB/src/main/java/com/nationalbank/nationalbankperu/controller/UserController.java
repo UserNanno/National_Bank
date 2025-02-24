@@ -67,7 +67,7 @@ public class UserController {
     }
 
     @PostMapping("/login")
-    public ResponseEntity<?> login(@RequestBody User user) {
+    public ResponseEntity<Object> login(@RequestBody User user) {
         Optional<User> userToLogin = userService.findByNumIdentification(user.getNumIdentification());
 
         if (userToLogin.isPresent() && userToLogin.get().getPassword().equals(user.getPassword())) {
@@ -76,9 +76,9 @@ public class UserController {
         return ResponseEntity.badRequest().body("Credenciales inválidas.");
     }
 
-    @GetMapping("/{user_id}/bankAccounts")
-    public ResponseEntity<List<BankAccount>> findBankAccountsById(@PathVariable Long user_id) {
-        Optional<User> user = userService.findById(user_id);
+    @GetMapping("/{userId}/bankAccounts")
+    public ResponseEntity<List<BankAccount>> findBankAccountsById(@PathVariable Long userId) {
+        Optional<User> user = userService.findById(userId);
         return user.map(u -> ResponseEntity.ok(u.getBankAccounts()))
                 .orElseGet(() -> ResponseEntity.notFound().build());
     }
