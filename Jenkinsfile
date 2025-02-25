@@ -3,7 +3,7 @@ pipeline {
 
     environment {
         SONARQUBE_SERVER = 'sonarqube' // Nombre del servidor SonarQube en Jenkins
-        MAVEN_HOME = tool 'Maven 3.8.4' // Nombre de la herramienta configurada en Jenkins
+        MAVEN_HOME = tool 'Maven 3.9.9' // Nombre de la herramienta configurada en Jenkins
     }
 
     stages {
