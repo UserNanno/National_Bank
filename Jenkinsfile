@@ -15,25 +15,31 @@ pipeline {
 
         stage('Build with Maven') {
             steps {
-                bat "\"${MAVEN_HOME}\\bin\\mvn\" clean package"
+                dir('Backend_NB') { // Cambiamos al directorio correcto
+                    bat "\"%MAVEN_HOME%\\bin\\mvn\" clean package"
+                }
             }
         }
 
         stage('SonarQube Analysis') {
             steps {
-                withSonarQubeEnv('sonarqube') {
-                    bat "\"${MAVEN_HOME}\\bin\\mvn\" sonar:sonar"
+                dir('Backend_NB') { 
+                    withSonarQubeEnv('sonarqube') {
+                        bat "\"%MAVEN_HOME%\\bin\\mvn\" sonar:sonar"
+                    }
                 }
             }
         }
 
         stage('Unit Tests') {
             steps {
-                bat "\"${MAVEN_HOME}\\bin\\mvn\" test"
+                dir('Backend_NB') { 
+                    bat "\"%MAVEN_HOME%\\bin\\mvn\" test"
+                }
             }
             post {
                 always {
-                    junit '**/target/surefire-reports/*.xml' // Recopilar reportes de JUnit
+                    junit 'Backend_NB/target/surefire-reports/*.xml'
                 }
             }
         }
@@ -44,7 +50,7 @@ pipeline {
             }
             post {
                 always {
-                    junit 'newman/*.xml' // Recopilar reportes de Newman (Postman CLI)
+                    junit 'newman/*.xml'
                 }
             }
         }
@@ -52,7 +58,6 @@ pipeline {
         stage('Deploy and Restart') {
             steps {
                 echo 'Desplegando aplicación...'
-                // Aquí puedes agregar pasos para desplegar tu aplicación
             }
         }
     }
