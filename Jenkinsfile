@@ -15,21 +15,21 @@ pipeline {
 
         stage('Build with Maven') {
             steps {
-                sh "${MAVEN_HOME}/bin/mvn clean package"
+                bat "\"${MAVEN_HOME}\\bin\\mvn\" clean package"
             }
         }
 
         stage('SonarQube Analysis') {
             steps {
                 withSonarQubeEnv('sonarqube') {
-                    sh "${MAVEN_HOME}/bin/mvn sonar:sonar"
+                    bat "\"${MAVEN_HOME}\\bin\\mvn\" sonar:sonar"
                 }
             }
         }
 
         stage('Unit Tests') {
             steps {
-                sh "${MAVEN_HOME}/bin/mvn test"
+                bat "\"${MAVEN_HOME}\\bin\\mvn\" test"
             }
             post {
                 always {
@@ -40,7 +40,7 @@ pipeline {
 
         stage('API Tests with Postman') {
             steps {
-                sh 'newman run pruebas-apis.postman_collection.json --reporters junit'
+                bat 'newman run pruebas-apis.postman_collection.json --reporters junit'
             }
             post {
                 always {
