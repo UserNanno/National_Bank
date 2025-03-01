@@ -1,0 +1,87 @@
+pipeline {
+    agent any
+    tools {
+        jdk 'JAVA'
+        maven 'maven'
+    }
+    environment {
+        SCANNER_HOME = tool 'sonar-scanner'
+    }
+    stages {
+        stage('Clean Workspace') {
+            steps {
+                cleanWs()
+            }
+        }
+        
+        stage("Git Checkout") {
+            steps {
+                git branch: 'master',
+                changelog: false, 
+                poll: false, 
+                url: 'https://github.com/UserNanno/National_Bank.git'
+            }
+        }
+        
+        stage("Build Backend with Maven") {
+            steps {
+                dir('Backend_NB') {
+                    bat "mvn clean package"//incluye compile
+
+                }
+            }
+        }
+        
+        stage("Build Frontend with npm") {
+            steps {
+                dir('frontend_nb') {
+                    bat "npm install"
+                }
+            }
+        }
+        
+        stage("Sonarqube Analysis - Backend") {
+            steps {
+                dir('Backend_NB') {
+                    bat "mvn clean verify sonar:sonar -Dsonar.projectKey=NationalBank_Backend -Dsonar.projectName=NationalBank_Backend -Dsonar.host.url=http://localhost:9000 -Dsonar.token=sqp_74e2719a513c43ce5e437f5dff769576430f85ec"
+                }
+            }
+        }
+        
+        stage("Sonarqube Analysis - Frontend") {
+            steps {
+                dir('frontend_nb') {
+                    bat "sonar-scanner -Dsonar.projectKey=NationalBank_Frontend -Dsonar.projectName=NationalBank_Frontend -Dsonar.host.url=http://localhost:9000 -Dsonar.token=sqp_e08d18c996d7ce24b0ef36b3498c72fba377e193"
+                }
+            }
+        }
+        
+        stage("Unit Tests - Backend") {
+            steps {
+                dir('Backend_NB') {
+                    bat "mvn test"
+                }
+            }
+        }
+
+        
+        stage("Deploy and Run Backend") {
+            steps {
+                dir('Backend_NB') {
+                    bat "start /B java -jar target/Backend_NB-1.0-SNAPSHOT.jar --server.port=8080"
+                }
+            }
+        }
+        
+        stage("Deploy and Run Frontend") {
+            steps {
+                dir('frontend_nb') {
+                    bat "npm start"
+                }
+            }
+        }
+        
+        
+        
+    }
+}
