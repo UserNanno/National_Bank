@@ -49,7 +49,10 @@ class BankAccountRepositoryTest {
         user = userRepository.save(user);  // Guardamos el usuario en la BD
     }
 
-
+    @AfterEach
+    void cleanUp() {
+        userRepository.deleteByNumIdentification(user.getNumIdentification());
+    }
 
     @Test
     void testSaveAndFindById() {

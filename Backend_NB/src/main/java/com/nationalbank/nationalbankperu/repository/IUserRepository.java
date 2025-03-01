@@ -17,4 +17,7 @@ public interface IUserRepository extends JpaRepository<User, Long> {
 
     // Encuentra un usuario por su correo electrónico
     Optional<User> findByEmail(String email);
+
+    // Elimina un usuario por su número de identificación
+    void deleteByNumIdentification(String numIdentification);
 }
