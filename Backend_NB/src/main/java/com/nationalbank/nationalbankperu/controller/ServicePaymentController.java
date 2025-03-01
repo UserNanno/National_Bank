@@ -3,6 +3,9 @@ package com.nationalbank.nationalbankperu.controller;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.nationalbank.nationalbankperu.model.ServicePayment;
 import com.nationalbank.nationalbankperu.service.IServicePaymentService;
+import io.swagger.v3.oas.annotations.Operation;
+import io.swagger.v3.oas.annotations.tags.Tag;
+import io.swagger.v3.oas.annotations.responses.ApiResponse;
 import org.springframework.core.io.ClassPathResource;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
@@ -15,6 +18,7 @@ import java.util.Optional;
 @RestController
 @RequestMapping("/api/service-payments")
 @CrossOrigin(origins = "*", allowedHeaders = "*", methods = {RequestMethod.GET, RequestMethod.POST, RequestMethod.PUT, RequestMethod.DELETE})
+@Tag(name = "Pagos de Servicios", description = "API para gestionar los pagos de servicios")
 public class ServicePaymentController {
 
     private final IServicePaymentService servicePaymentService;
@@ -23,6 +27,9 @@ public class ServicePaymentController {
         this.servicePaymentService = servicePaymentService;
     }
 
+    @Operation(summary = "Obtener servicios disponibles", description = "Devuelve una lista de servicios disponibles desde un archivo JSON.")
+    @ApiResponse(responseCode = "200", description = "Lista de servicios obtenida exitosamente")
+    @ApiResponse(responseCode = "500", description = "Error al leer los servicios")
     @GetMapping("/available-services")
     public ResponseEntity<List<Map<String, Object>>> getServices() {
         try {
@@ -35,6 +42,9 @@ public class ServicePaymentController {
         }
     }
 
+    @Operation(summary = "Realizar un pago de servicio", description = "Registra un pago de servicio para un usuario específico.")
+    @ApiResponse(responseCode = "200", description = "Pago registrado con éxito")
+    @ApiResponse(responseCode = "400", description = "Error en el pago")
     @PostMapping("/pay/{userId}")
     public ResponseEntity<String> payService(@PathVariable Long userId, @RequestBody ServicePayment servicePayment) {
         try {
@@ -45,12 +55,17 @@ public class ServicePaymentController {
         }
     }
 
+    @Operation(summary = "Obtener todos los pagos de servicio", description = "Devuelve una lista de todos los pagos de servicio registrados.")
+    @ApiResponse(responseCode = "200", description = "Lista de pagos obtenida exitosamente")
     @GetMapping
     public ResponseEntity<List<ServicePayment>> findAll() {
         List<ServicePayment> payments = servicePaymentService.findAll();
         return ResponseEntity.ok(payments);
     }
 
+    @Operation(summary = "Buscar un pago de servicio por ID", description = "Devuelve los detalles de un pago de servicio por su ID.")
+    @ApiResponse(responseCode = "200", description = "Pago de servicio encontrado")
+    @ApiResponse(responseCode = "404", description = "Pago de servicio no encontrado")
     @GetMapping("/{id}")
     public ResponseEntity<ServicePayment> findById(@PathVariable Long id) {
         Optional<ServicePayment> servicePayment = servicePaymentService.findById(id);
@@ -58,6 +73,9 @@ public class ServicePaymentController {
                 .orElseGet(() -> ResponseEntity.notFound().build());
     }
 
+    @Operation(summary = "Actualizar un pago de servicio", description = "Modifica los detalles de un pago de servicio existente.")
+    @ApiResponse(responseCode = "200", description = "Pago de servicio actualizado con éxito")
+    @ApiResponse(responseCode = "400", description = "Error: Pago de servicio no encontrado")
     @PutMapping("/update/{id}")
     public ResponseEntity<String> update(@PathVariable Long id, @RequestBody ServicePayment servicePayment) {
         Optional<ServicePayment> existingPayment = servicePaymentService.findById(id);
@@ -75,6 +93,9 @@ public class ServicePaymentController {
         return ResponseEntity.ok("Pago de servicio actualizado con éxito.");
     }
 
+    @Operation(summary = "Eliminar un pago de servicio", description = "Elimina un pago de servicio por su ID.")
+    @ApiResponse(responseCode = "200", description = "Pago de servicio eliminado con éxito")
+    @ApiResponse(responseCode = "404", description = "Pago de servicio no encontrado")
     @DeleteMapping("/delete/{id}")
     public ResponseEntity<String> deleteById(@PathVariable Long id) {
         if (servicePaymentService.findById(id).isEmpty()) {
