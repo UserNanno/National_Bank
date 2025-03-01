@@ -15,13 +15,13 @@ FROM eclipse-temurin:17-jdk AS runtime
 WORKDIR /app
 
 # Crear un usuario seguro para evitar ejecutar como root
-RUN addgroup --system spring && adduser --system --group spring
-USER spring:spring
+RUN groupadd -r spring && useradd -r -g spring spring
+USER spring
 
 # Copiar el JAR desde la fase de construcción
 COPY --from=builder /app/target/*.jar app.jar
 
-# Exponer solo el puerto necesario (8080 por defecto en Spring Boot)
+# Exponer el puerto necesario (8080 por defecto en Spring Boot)
 EXPOSE 8080
 
 # Configuración de logs y variables de entorno
