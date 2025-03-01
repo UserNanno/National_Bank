@@ -2,6 +2,7 @@ package com.nationalbank.nationalbankperu.repository;
 
 import com.nationalbank.nationalbankperu.model.BankAccount;
 import com.nationalbank.nationalbankperu.model.User;
+import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
@@ -12,6 +13,7 @@ import org.springframework.test.context.junit.jupiter.SpringExtension;
 
 import java.math.BigDecimal;
 import java.util.Optional;
+import java.util.UUID;
 
 import static org.junit.jupiter.api.Assertions.*;
 
@@ -30,19 +32,24 @@ class BankAccountRepositoryTest {
 
     @BeforeEach
     void setUp() {
+
+        String uniqueId = UUID.randomUUID().toString().substring(0, 8);  // Generar un ID único
+
         // Creamos y guardamos un usuario de prueba
         user = User.builder()
-                .numIdentification("12345678")
+                .numIdentification(uniqueId) // ID único
                 .firstName("Juan")
                 .lastName("Pérez")
-                .email("test@example.com")
-                .phone("987654321")
+                .email("test" + uniqueId + "@example.com") // Email único
+                .phone("987654" + uniqueId.substring(0, 3)) // Teléfono único
                 .birthDate("1990-01-01")
                 .password("encryptedpassword") // Simulando una contraseña encriptada
                 .build();
 
         user = userRepository.save(user);  // Guardamos el usuario en la BD
     }
+
+
 
     @Test
     void testSaveAndFindById() {
