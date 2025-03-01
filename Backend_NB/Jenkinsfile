@@ -26,62 +26,51 @@ pipeline {
         stage("Build Backend with Maven") {
             steps {
                 dir('Backend_NB') {
-                    bat "mvn clean package"//incluye compile
+                    sh "mvn clean package -DskipTests"
+                }
+            }
+        }
 
-                }
-            }
-        }
-        
-        stage("Build Frontend with npm") {
-            steps {
-                dir('frontend_nb') {
-                    bat "npm install"
-                }
-            }
-        }
-        
-        stage("Sonarqube Analysis - Backend") {
-            steps {
-                dir('Backend_NB') {
-                    bat "mvn clean verify sonar:sonar -Dsonar.projectKey=NationalBank_Backend -Dsonar.projectName=NationalBank_Backend -Dsonar.host.url=http://localhost:9000 -Dsonar.token=sqp_74e2719a513c43ce5e437f5dff769576430f85ec"
-                }
-            }
-        }
-        
-        stage("Sonarqube Analysis - Frontend") {
-            steps {
-                dir('frontend_nb') {
-                    bat "sonar-scanner -Dsonar.projectKey=NationalBank_Frontend -Dsonar.projectName=NationalBank_Frontend -Dsonar.host.url=http://localhost:9000 -Dsonar.token=sqp_e08d18c996d7ce24b0ef36b3498c72fba377e193"
-                }
-            }
-        }
-        
         stage("Unit Tests - Backend") {
             steps {
                 dir('Backend_NB') {
-                    bat "mvn test"
+                    sh "mvn test"
                 }
             }
         }
 
-        
-        stage("Deploy and Run Backend") {
+        stage("Sonarqube Analysis - Backend") {
             steps {
                 dir('Backend_NB') {
-                    bat "start /B java -jar target/Backend_NB-1.0-SNAPSHOT.jar --server.port=8080"
+                    sh "mvn sonar:sonar -Dsonar.projectKey=NationalBank_Backend -Dsonar.projectName=NationalBank_Backend -Dsonar.host.url=http://sonarqube:9000 -Dsonar.token=squ_65db13a9b849a3ad6e22c24cd76ef02e0d806117"
                 }
             }
         }
-        
-        stage("Deploy and Run Frontend") {
+
+        stage("Build & Push Docker Images") {
             steps {
-                dir('frontend_nb') {
-                    bat "npm start"
+                script {
+                    def backendImage = "usernanno/nationalbank-backend:latest"
+
+                    // Autenticación en Docker Hub con credenciales de Jenkins
+                    withCredentials([usernamePassword(credentialsId: 'docker-hub-credentials', usernameVariable: 'DOCKER_USER', passwordVariable: 'DOCKER_PASS')]) {
+                        sh "echo $DOCKER_PASS | docker login -u $DOCKER_USER --password-stdin"
+                    }
+
+                    // Construcción de la imagen del backend
+                    sh "docker build -t ${backendImage} Backend_NB"
+
+                    // Subir la imagen a Docker Hub
+                    sh "docker push ${backendImage}"
                 }
             }
         }
-        
-        
-        
+
+        stage("Deploy with Docker Compose") {
+            steps {
+                sh "docker-compose down"
+                sh "docker-compose up -d --build"
+            }
+        }
     }
 }
