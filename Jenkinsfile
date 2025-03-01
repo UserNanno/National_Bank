@@ -6,7 +6,7 @@ pipeline {
     }
     environment {
         SCANNER_HOME = tool 'SonarScanner'
-    }SonarScanner
+    }
     stages {
         stage('Clean Workspace') {
             steps {
