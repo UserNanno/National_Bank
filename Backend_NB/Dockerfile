@@ -14,6 +14,10 @@ RUN mvn clean package -DskipTests
 FROM eclipse-temurin:17-jdk AS runtime
 WORKDIR /app
 
+# Instalar mysql-client permanentemente
+USER root
+RUN apt update && apt install -y mysql-client
+
 # Crear un usuario seguro para evitar ejecutar como root
 RUN groupadd -r spring && useradd -r -g spring spring
 USER spring

@@ -1,8 +1,8 @@
 
 services:
-  mysql_container:
+  mysql:
     image: mysql:8.0
-    container_name: mysql_container
+    container_name: mysql
     restart: always
     environment:
       MYSQL_ALLOW_EMPTY_PASSWORD: "yes"
