@@ -79,7 +79,7 @@ pipeline {
 
 	stage("Deploy with Docker Compose") {
 	    steps {
-	        dir('Backend_NB') { // Cambiar al directorio que contiene el docker-compose.yml
+	        script { // Cambiar al directorio que contiene el docker-compose.yml
 	            sh "docker exec jenkins_container /usr/local/bin/docker-compose down"
 	            sh "docker exec jenkins_container /usr/local/bin/docker-compose up -d --build"
 	        }
