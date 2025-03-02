@@ -39,13 +39,15 @@ pipeline {
             }
         }
 
-        stage("Sonarqube Analysis - Backend") {
-            steps {
-                dir('Backend_NB') {
-                    sh "mvn sonar:sonar -Dsonar.projectKey=NationalBank_Backend -Dsonar.projectName=NationalBank_Backend -Dsonar.host.url=http://sonarqube:9000 -Dsonar.token=squ_65db13a9b849a3ad6e22c24cd76ef02e0d806117"
-                }
-            }
-        }
+	stage("Sonarqube Analysis - Backend") {
+	    steps {
+	        dir('Backend_NB') {
+	            withCredentials([string(credentialsId: 'sonar-token', variable: 'SONAR_TOKEN')]) {
+	                sh "mvn sonar:sonar -Dsonar.projectKey=NationalBank_Backend -Dsonar.projectName=NationalBank_Backend -Dsonar.host.url=http://sonarqube:9000 -Dsonar.token=$SONAR_TOKEN"
+	            }
+	        }
+	    }
+	}
 
         stage("Build & Push Docker Images") {
             steps {
