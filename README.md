@@ -180,6 +180,7 @@ Mejorar la visibilidad del progreso del proyecto.
 Mantener un registro claro de cambios y decisiones.
 Optimizar la comunicación entre los miembros del equipo.
 
-![image](https://github.com/user-attachments/assets/a6a24e2f-d9de-4892-ae31-49eabc42fa7f)
+![image](https://github.com/user-attachments/assets/c3317dbe-488b-434c-a32e-9e4ce06af38c)
+
 
 
