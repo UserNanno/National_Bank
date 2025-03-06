@@ -72,6 +72,7 @@ services:
 networks:
   nationalbank-network:
     driver: bridge
+    external: true
 
 volumes:
   mysql_data:
