@@ -2,12 +2,12 @@
 
 # 📋 Integrantes
 
--Lizar Estrada, Adrián Jesús (Jefe de Proyecto)
--Cóndor Marín, Jesús Ernesto
--Canecillas Contreras, Juan Mariano
--Manco Méndez, Elvis Neiser
--Vásquez Gonzales Sebastián
--Huarhua Piñas, Edson Sebastian
+- Lizar Estrada, Adrián Jesús (Jefe de Proyecto)
+- Cóndor Marín, Jesús Ernesto
+- Canecillas Contreras, Juan Mariano
+- Manco Méndez, Elvis Neiser
+- Vásquez Gonzales Sebastián
+- Huarhua Piñas, Edson Sebastian
 
 ## ⚙️Propósito del proyecto
 La pandemia de COVID-19 ha acelerado la adopción de servicios bancarios digitales en todo el mundo, incluyendo Perú. Esta tendencia ha aumentado significativamente la demanda de servicios bancarios en línea y móviles, pero la plataforma actual del Banco de la Nación del Perú (BN) enfrenta varios obstáculos para satisfacer estas demandas crecientes:
