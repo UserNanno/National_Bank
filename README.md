@@ -98,4 +98,12 @@ Garantizar que:
 ![image](https://github.com/user-attachments/assets/e7782bb2-c159-4e8f-9b73-2c4abf46ff35)
 ![image](https://github.com/user-attachments/assets/ef931cd9-cbc6-4640-857f-b0b378587771)
 
+#### API CUENTAS BANCARIAS // /api/bank-accounts/{id}
+![image](https://github.com/user-attachments/assets/82e6a589-14ec-4ef6-adae-e4f64cbf22f0)
+
+#### API PAGO SERVICIOS // /api/service-payments/update/{id}
+![image](https://github.com/user-attachments/assets/c5dc532a-aa7f-4d91-8db2-5346fe0698b7)
+
+
+
 
