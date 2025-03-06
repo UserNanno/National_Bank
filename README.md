@@ -19,6 +19,14 @@ Vulnerabilidades de Seguridad: La seguridad de los datos y las transacciones se 
 
 
 ## ⚙️Visión General de la arquitectura del proyecto
+Este proyecto está diseñado siguiendo los principios de Domain-Driven Design (DDD) y Arquitectura Limpia, lo que permite una estructura modular, mantenible y escalable.
+
+🏗 Principios Claves de la Arquitectura
+Separación de Responsabilidades: Cada capa tiene una función específica, reduciendo el acoplamiento y facilitando la escalabilidad.
+Modelo de Dominio Centrado: La lógica de negocio se organiza alrededor de entidades y agregados bien definidos.
+Independencia de Infraestructura: La lógica de negocio no depende de frameworks o bases de datos específicas.
+Testabilidad: Gracias a la separación de capas, se facilita la implementación de pruebas unitarias y de integración.
+
 ![image](https://github.com/user-attachments/assets/5b05f396-97e7-466c-a61c-d6ed5854f908)
 
 #Servicios de dominio
