@@ -43,7 +43,7 @@ pipeline {
 	    steps {
 	        dir('Backend_NB') {
 	            withCredentials([string(credentialsId: 'sonar-token', variable: 'SONAR_TOKEN')]) {
-	                sh "mvn sonar:sonar -Dsonar.projectKey=NationalBank_Backend -Dsonar.projectName=NationalBank_Backend -Dsonar.host.url=http://172.20.0.4:9000 -Dsonar.token=$SONAR_TOKEN"
+	                sh "mvn sonar:sonar -Dsonar.projectKey=NationalBank_Backend -Dsonar.projectName=NationalBank_Backend -Dsonar.host.url=http://sonarqube:9000 -Dsonar.token=$SONAR_TOKEN"
 
 	            }
 	        }
