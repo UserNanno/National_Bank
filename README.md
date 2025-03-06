@@ -1,3 +1,33 @@
+## 🚀 Proyecto NationalBank con Jenkins 
+
+# 📋 Integrantes
+
+-Lizar Estrada, Adrián Jesús (Jefe de Proyecto)
+-Cóndor Marín, Jesús Ernesto
+-Canecillas Contreras, Juan Mariano
+-Manco Méndez, Elvis Neiser
+-Vásquez Gonzales Sebastián
+-Huarhua Piñas, Edson Sebastian
+
+## ⚙️Propósito del proyecto
+La pandemia de COVID-19 ha acelerado la adopción de servicios bancarios digitales en todo el mundo, incluyendo Perú. Esta tendencia ha aumentado significativamente la demanda de servicios bancarios en línea y móviles, pero la plataforma actual del Banco de la Nación del Perú (BN) enfrenta varios obstáculos para satisfacer estas demandas crecientes:
+Interoperabilidad Limitada: La dificultad para integrarse con otros sistemas y plataformas dificulta el acceso fluido a cuentas, la realización de transferencias interbancarias y la conexión con servicios de terceros, como billeteras digitales.
+Lentitud e inestabilidad: Los clientes experimentan frustración debido a la lentitud en la carga de páginas, la ejecución de transacciones y las fallas del sistema, especialmente durante períodos de alta demanda. Esto se traduce en tiempos de espera prolongados e interrupciones en los procesos.
+Ineficiencia Operativa: Procesos manuales y lentos, como la apertura de cuentas, la solicitud de créditos y la atención al cliente, aumentan los costos operativos, reducen la productividad y generan retrasos en la prestación de servicios.
+Falta de Escalabilidad: La arquitectura de la plataforma actual no está diseñada para soportar el crecimiento proyectado del banco, la expansión de servicios digitales y el aumento en el volumen de transacciones.
+Vulnerabilidades de Seguridad: La seguridad de los datos y las transacciones se ve comprometida por vulnerabilidades que podrían ser explotadas por ciberdelincuentes, como ataques de phishing, malware y robo de identidad.
+
+
+## ⚙️Visión General de la arquitectura del proyecto
+![image](https://github.com/user-attachments/assets/5b05f396-97e7-466c-a61c-d6ed5854f908)
+
+#Servicios de dominio
+![image](https://github.com/user-attachments/assets/9444a95d-8549-48b9-b04a-74963c7ef778)
+
+#Organización de servicios
+![image](https://github.com/user-attachments/assets/bcc712c3-1c8d-4f02-a8d7-ca565d1d17b6)
+
+
 ## ⚙️Preparación del entorno
 
 Clonamos el repositorio mediante el siguiente comando:
