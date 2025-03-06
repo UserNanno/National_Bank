@@ -124,7 +124,31 @@ Garantizar que:
 	}
 
 
-## ⚙️Principales servicios WEB
+## ⚙️Documentación de Principales servicios WEB
+
+Este proyecto cuenta con una documentación detallada de los servicios web utilizando OpenAPI 3.0 y Swagger, permitiendo una mejor comprensión e interacción con la API.
+
+📖 Documentación de la API
+La documentación generada con Swagger proporciona una interfaz interactiva donde los desarrolladores pueden explorar los endpoints, probar solicitudes y visualizar respuestas en tiempo real.
+
+🔹 Acceso a la documentación
+Puedes acceder a la documentación desde el entorno local en la siguiente URL:
+
+http://localhost:8080/swagger-ui/index.html#
+
+🔹 Características de la documentación:
+
+Descripción detallada de los endpoints, parámetros y respuestas.
+Posibilidad de probar los servicios directamente desde la interfaz.
+Especificación basada en OpenAPI 3.0 para garantizar compatibilidad con otras herramientas.
+📌 Cómo generar la documentación
+Si necesitas actualizar o regenerar la documentación, sigue estos pasos:
+
+Asegúrate de que todas las rutas y esquemas estén bien documentados en los controladores y modelos.
+Ejecuta el servidor con Swagger habilitado.
+Accede a la interfaz de Swagger en la URL proporcionada.
+Para más detalles, revisa la configuración en el archivo correspondiente dentro del proyecto.
+
 ![image](https://github.com/user-attachments/assets/e7782bb2-c159-4e8f-9b73-2c4abf46ff35)
 ![image](https://github.com/user-attachments/assets/ef931cd9-cbc6-4640-857f-b0b378587771)
 
@@ -134,6 +158,20 @@ Garantizar que:
 #### API PAGO SERVICIOS // /api/service-payments/update/{id}
 ![image](https://github.com/user-attachments/assets/c5dc532a-aa7f-4d91-8db2-5346fe0698b7)
 
+## ⚙️Gestión de proyecto
+Para la planificación y seguimiento del desarrollo, utilizamos Trello como herramienta principal de gestión de tareas. Nuestro tablero está estructurado en las siguientes columnas:
 
+Usuario 🧑‍💻: Contiene requerimientos, solicitudes y necesidades del usuario final.
+Sistema 🏗️: Agrupa tareas relacionadas con la arquitectura, configuración y mejoras del sistema.
+Backlog 📋: Almacena todas las tareas pendientes de priorización y desarrollo.
+Cada tarea sigue un flujo de trabajo estructurado, asegurando que los cambios sean bien documentados y alineados con los objetivos del proyecto.
+
+✅ Objetivos de la gestión en Trello:
+
+Mejorar la visibilidad del progreso del proyecto.
+Mantener un registro claro de cambios y decisiones.
+Optimizar la comunicación entre los miembros del equipo.
+
+![image](https://github.com/user-attachments/assets/a6a24e2f-d9de-4892-ae31-49eabc42fa7f)
 
 
